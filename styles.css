@@ -1,7 +1,9 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 20px;
     min-height: 100vh;
     margin: 0;
 }
@@ -17,8 +19,4 @@ body {
     background-color: #f5f5dc;
     border: 1px solid black;
     box-sizing: border-box;
-    width: calc(100% / 16);
-    aspect-ratio: 1 / 1;
-    flex-grow: 0;
-    flex-shrink: 0;
 }
