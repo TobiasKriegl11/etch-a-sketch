@@ -15,27 +15,27 @@ function buildGrid(gridSize) {
 
       squareContainer.appendChild(box);
 
-      //Two methods for random color
       box.addEventListener('mouseenter', () => {
         if (!box.style.backgroundColor) {
-        const r = Math.floor(Math.random() * 256);
-        const g = Math.floor(Math.random() * 256);
-        const b = Math.floor(Math.random() * 256);
-        box.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-        };      
+          const r = Math.floor(Math.random() * 256);
+          const g = Math.floor(Math.random() * 256);
+          const b = Math.floor(Math.random() * 256);
+          box.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        }     
 
         let currentOpacity = parseFloat(box.style.opacity);
         if (currentOpacity < 1) {
           box.style.opacity = (currentOpacity + 0.1).toFixed(1);
-        };
+        }
       });    
-    };
-};
+    }
+}
 buildGrid(gridSize);
 
 buttonNewGrid.addEventListener('click', () => {
-    let userInput = prompt("Choose your grid size (1-64):")
+    const userInput = prompt("Choose your grid size (1-64):");
     gridSize = parseInt(userInput);
+
     if (gridSize > 64 || gridSize < 1 ||isNaN(gridSize)) {
         alert("Invalid input! Please enter a number between 1 and 64.")
         return;
