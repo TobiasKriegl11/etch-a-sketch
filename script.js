@@ -36,7 +36,7 @@ buttonNewGrid.addEventListener('click', () => {
     const userInput = prompt("Choose your grid size (1-64):");
     gridSize = parseInt(userInput);
 
-    if (gridSize > 64 || gridSize < 1 ||isNaN(gridSize)) {
+    if (gridSize > 64 || gridSize < 1 || isNaN(gridSize)) {
         alert("Invalid input! Please enter a number between 1 and 64.")
         return;
     }
