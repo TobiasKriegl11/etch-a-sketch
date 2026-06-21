@@ -7,16 +7,28 @@ function buildGrid(gridSize) {
     squareContainer.replaceChildren();
     for (let i = 0; i < (gridSize * gridSize); i++) {
       const box = document.createElement('div');
-      box.classList.add("square-box");
+      box.classList.add("square-box");    
 
       box.style.width = `calc(100% / ${gridSize})`;
-      box.style.height = `calc(100% / ${gridSize})`;
+      box.style.height = `calc(100% / ${gridSize})`;      
+      box.style.opacity = 0.1;
 
       squareContainer.appendChild(box);
 
+      //Two methods for random color
       box.addEventListener('mouseenter', () => {
-      box.style.backgroundColor = "black";
-      });
+        if (!box.style.backgroundColor) {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        box.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        };      
+
+        let currentOpacity = parseFloat(box.style.opacity);
+        if (currentOpacity < 1) {
+          box.style.opacity = (currentOpacity + 0.1).toFixed(1);
+        };
+      });    
     };
 };
 buildGrid(gridSize);
